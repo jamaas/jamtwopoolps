@@ -46,8 +46,10 @@ fn main() {
         |_p| fa! {},
         |_p, _t, _cov, x| {
             x[0] = 6.0; // Initial QA
-            x[1] = 9.0; // Initial QB
-            x[2] = 15.0; // Initial QT
+            //x[1] = 9.0; // Initial QB
+            x[1] = 10.0; // Initial QB	    
+            //x[2] = 15.0; // Initial QT
+	     x[2] = 16.0; // Initial QT
         },
         // Observation function: here we output the state vector directly.
         |x, _p, _t, _cov, y| {
