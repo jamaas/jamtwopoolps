@@ -82,11 +82,7 @@ fn main() {
         (3, 3), 
     );
 
-    // // Parameter values corresponding to:
-    // // SA = 20.0, SB = 25.0, VAB = 18.0, VBA = 13.0, VBO = 8.0, KAB = 0.32, KBA = 0.36, KBO = 0.31
-    // let params = vec![20.0, 25.0, 18.0, 13.0, 8.0, 0.32, 0.36, 0.31];
-
-    // Estimate predictions from the ODE model using the subject data and parameters.
+      // Estimate predictions from the ODE model using the subject data and parameters.
     let ode_predictions = ode.estimate_predictions(&subject, &params);
 
     // Assuming that `ode_predictions.get_predictions()` returns a vector of Prediction structs.
