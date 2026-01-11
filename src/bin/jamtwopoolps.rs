@@ -1,4 +1,13 @@
+// This is a first attempt at writing an example of  a  mechanistic,
+// compartmental, two-pool model in Rust language, utilizing the
+// pharmsol crate to solve the ode's.  Created by JAM on Jan 11, 2026
+
+// Last updated on 11/1/26
+
+
+// List necessary crates
 use pharmsol::*;
+// https://github.com/LAPKB/pharmsol
 
 fn main() {
     // Build a subject. Here we assume:
@@ -8,7 +17,8 @@ fn main() {
     // • Observations are scheduled at selected timepoints.
     let subject = Subject::builder("1")
         // Apply infusion to pool A (compartment 0) with a constant rate of 7.0 over [0, 10]
-        .infusion(0.0, 10.0, 0, 7.0)
+//        .infusion(0.0, 10.0, 0, 7.0)
+        .infusion(0.0, 20.0, 0, 7.0)	
         .observation(0.0, 0.0, 0)
         .repeat(9, 1.0)
         .observation(0.0, 0.0, 1)
