@@ -2,13 +2,16 @@
 // compartmental, two-pool model in Rust language, utilizing the
 // pharmsol crate to solve the ode's.  Created by JAM on Jan 11, 2026
 
-// Last updated on 11/1/26
+// https://github.com/LAPKB/pharmsol
 
+// Last updated on 13/1/26
 
 // List necessary crates
 use pharmsol::*;
-// https://github.com/LAPKB/pharmsol
+//use std::fs;
 
+
+// MAIN function
 fn main() {
 
     // First step is to build an experimental subject (model person)
@@ -78,6 +81,11 @@ fn main() {
             y[2] = x[2];
         },
 
+
+	// create function to output  data to file
+
+
+	
 	// specify dimensions: three states and three observations
         (3, 3), 
     );
@@ -105,5 +113,12 @@ fn main() {
         for pred in preds {
             println!("{:#?}", pred);
         }
+	
     }
-}
+    // output predictions to a file
+    // for (outeq, preds) in &groups {
+    // 	let data = outeq;
+    // 	fs::write(outeq, "./output.dat");
+    // 	}
+    
+    }
