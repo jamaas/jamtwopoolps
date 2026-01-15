@@ -8,7 +8,7 @@
 
 // List necessary crates
 use pharmsol::*;
-//use std::fs;
+use std::fs;
 
 
 // MAIN function
@@ -107,7 +107,7 @@ fn main() {
             .push(pred.prediction());
     }
 
-    // Print the grouped predictions.
+    // Print the grouped predictions to screen.
     for (outeq, preds) in &groups {
         println!("Output Equation {} has {} predictions:", outeq, preds.len());
         for pred in preds {
@@ -115,10 +115,10 @@ fn main() {
         }
 	
     }
-    // output predictions to a file
+    //output predictions to a file
     // for (outeq, preds) in &groups {
-    // 	let data = outeq;
-    // 	fs::write(outeq, "./output.dat");
+    // 	//	fs::write(outeq, "./output.dat");
+    // 	fs::write("./output.dat", outeq); 
     // 	}
     
     }
