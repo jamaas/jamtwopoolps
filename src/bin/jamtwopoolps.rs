@@ -1,10 +1,12 @@
 // This is a first attempt at writing an example of  a  mechanistic,
 // compartmental, two-pool model in Rust language, utilizing the
-// pharmsol crate to solve the ode's.  Created by JAM on Jan 11, 2026
+// pharmsol crate to solve the ode's.
+
+//Created by JAM on Jan 11, 2026 at Norwich UK
 
 // https://github.com/LAPKB/pharmsol
 
-// Last updated on 13/1/26
+// Last updated on 16/1/26
 
 // List necessary crates
 use pharmsol::*;
