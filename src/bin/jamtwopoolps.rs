@@ -2,11 +2,11 @@
 // compartmental, two-pool model in Rust language, utilizing the
 // pharmsol crate to solve the ode's.
 
-//Created by JAM on Jan 11, 2026 at Norwich UK
+//Created by JAM on 2026_01_11 at Norwich UK
 
 // https://github.com/LAPKB/pharmsol
 
-// Last updated on 16/1/26
+// Last updated on 2026_01_19
 
 // List necessary crates
 use pharmsol::*;
@@ -20,8 +20,8 @@ fn main() {
     // An infusion is applied to pool A from time 0 to 10 with rate 7.0 (the FOA value).
 
     let subject = Subject::builder("1")
-        // Apply infusion from time 0.0 to 10.0 [0,10]  into Pool A (compartment 0) at a constant  rate of 7.0 over [0, 10]
-        .infusion(0.0, 10.0, 0, 7.0)
+        // Apply infusion from time 0.0 to 20.0 [0,20]  into Pool A (compartment 0) at a constant  rate of 50.0 over [0, 10]
+        .infusion(0.0, 20.0, 0, 50.0)
         //Observations are scheduled at selected timepoints.
         .observation(0.0, 0.0, 0)
         .repeat(19, 1.0)
@@ -67,9 +67,9 @@ fn main() {
         |_p| lag! {},
         |_p| fa! {},
         |_p, _t, _cov, x| {
-            x[0] = 6.0; // Initial QA
-            x[1] = 9.0; // Initial QB	    
-            x[2] = 15.0; // Initial QT
+            x[0] = 1.0; // Initial QA
+            x[1] = 0.0; // Initial QB	    
+            x[2] = 1.0; // Initial QT
         },
         // Observation function: here we output the state vector directly.
         |x, _p, _t, _cov, y| {
@@ -125,7 +125,8 @@ fn main() {
     let mut csv_content = String::new();
 
     // Header row
-    csv_content.push_str("Time,QA,QB,QT\n");
+    // csv_content.push_str("Time,QA,QB,QT\n");
+        csv_content.push_str("Time,QA,QB,QT,con_a\n");
 
     // Data rows - group predictions by time
     for time in &times {
@@ -155,3 +156,9 @@ fn main() {
     // Also print to console
     println!("\nCSV Output:\n{}", csv_content);
 }
+
+
+//current issues
+// 1. attempt to output other variables like con_a and con_b
+// 2. infustion into pool A does not seem to be working correctly
+// 3. how to set integration interval?
